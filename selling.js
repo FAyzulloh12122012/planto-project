@@ -1,4 +1,5 @@
 const elSearchBtn = document.querySelector(".search_btn")
+const elSearchMikraphoneBtn = document.querySelector(".change_btn-mikrafon")
 const elSidebarBtn = document.querySelector(".sidebar_btn")
 
 const elSearch = document.querySelector(".search")
@@ -12,10 +13,14 @@ const elRegistorDelete = document.querySelector(".registor_delete")
 
 const elSellingContent = document.querySelector(".selling__content")
 const elSellingList = document.querySelector(".selling__list")
+const elSearchInput = document.querySelector(".change_input")
 
 let elWindowId = new URLSearchParams(window.location.search).get("id")
 let elSellingObject = elSellingArray[elWindowId - 1]
 let elSellingNewArray = elSellingArray.filter((object) => object.id != elWindowId)
+const elSearchWebkit = new webkitSpeechRecognition()
+elSearchWebkit.lang = "en-EN"
+let elTrandyImgArray = ["./Photo/Img/img1.png","./Photo/Img/img2.png","./Photo/Img/img3.png","./Photo/Img/img6.pnga"]
 
 elSearchBtn.addEventListener("click", (evt) => {
     evt.preventDefault()
@@ -24,6 +29,15 @@ elSearchBtn.addEventListener("click", (evt) => {
 elSearchDeleteBtn.addEventListener("click", (evt) => {
     evt.preventDefault()
     elSearch.classList.add("hidden")
+})
+
+elSearchMikraphoneBtn.addEventListener("click", (evt) => {
+    evt.preventDefault()
+    
+    elSearchWebkit.start()
+    elSearchWebkit.onresult = function(evt){
+        elSearchInput.value = evt.results[0][0].transcript
+    }
 })
 
 function isOpenShopModal(){

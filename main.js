@@ -1,4 +1,5 @@
 const elSearchBtn = document.querySelector(".search_btn")
+const elSearchMikraphoneBtn = document.querySelector(".change_btn-mikrafon")
 const elSidebarBtn = document.querySelector(".sidebar_btn")
 
 const elSearch = document.querySelector(".search")
@@ -13,6 +14,7 @@ const elRegistorDelete = document.querySelector(".registor_delete")
 const elTrandyImg = document.querySelector(".trandy_img")
 const elTrandyLeftBtn = document.querySelector(".trandy_btn-left")
 const elTrandyRightBtn = document.querySelector(".trandy_btn-right")
+const elSearchInput = document.querySelector(".change_input")
 
 const elPlantsWraper = document.querySelector(".plants__wraper")
 const elSellingList = document.querySelector(".selling__list")
@@ -25,12 +27,9 @@ const elUsers = document.querySelector(".users")
 const elBest = document.querySelector(".best")
 const elFooter = document.querySelector(".site__footer")
 
-let elTrandyImgArray = [
-    "./Photo/Img/img1.png",
-    "./Photo/Img/img2.png",
-    "./Photo/Img/img3.png",
-    "./Photo/Img/img6.png"
-]
+const elSearchWebkit = new webkitSpeechRecognition()
+elSearchWebkit.lang = "en-EN"
+let elTrandyImgArray = ["./Photo/Img/img1.png","./Photo/Img/img2.png","./Photo/Img/img3.png","./Photo/Img/img6.pnga"]
 let elBestObject = {}
 let elTrandyImgIndex = 0
 
@@ -91,6 +90,15 @@ elTrandyRightBtn.addEventListener("click", (evt) => {
     elTrandyImg.setAttribute("src", `${elTrandyImgArray[elTrandyImgIndex]}`)
     elBestObject = elBestArray[elTrandyImgIndex]
     renderBest(elBestObject)
+})
+
+elSearchMikraphoneBtn.addEventListener("click", (evt) => {
+    evt.preventDefault()
+    
+    elSearchWebkit.start()
+    elSearchWebkit.onresult = function(evt){
+        elSearchInput.value = evt.results[0][0].transcript
+    }
 })
 
 elPlantsArray.forEach((object) => {
