@@ -81,7 +81,7 @@ elSellingNewArray.forEach((object) => {
     `
 })
 
-addEventListener("keydown", (evt) => {
+window.addEventListener("keydown", (evt) => {
     if(evt.key == "b"){
         elSidebar.classList.remove("hidden")
     }
