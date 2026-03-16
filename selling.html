@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100..800&family=Bitcount+Prop+Single+Ink:wght@100..900&family=Fira+Code:wght@300..700&family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ruda:wght@400..900&family=Stack+Sans+Text:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./Photo/Icon/siteLogo.png">
+    <link rel="stylesheet" href="./selling.css">
+    <link rel="stylesheet" href="./normalize.css">
+</head>
+<body>
+    
+    <header class="site__header">
+        <div class="conteyner header__wraper">
+            <div class="header__logo">
+                <img width="40px" src="./Photo/Icon/siteLogo.png" alt="siteLogo" class="header_logo">
+                <h3 class="header_title">Planto.</h3>
+            </div>
+            <nav class="header__navbar">
+                <ul class="navbar__list">
+                    <li class="navbar_item"><a href="./index.html" class="navbar_link">Home</a></li>
+                    <li class="navbar_item"><select class="navbar_select"> <option selected disabled>Plants Type</option> </select></li>
+                    <li class="navbar_item"><a href="#selling__content" class="navbar_link">More</a></li>
+                    <li class="navbar_item"><a href="#selling__list" class="navbar_link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header__btn">
+                <button class="header_btn search_btn"><img width="20px" src="./Photo/Icon/searchIcon.png" alt="" class="header_icon"></button>
+                <button onclick="isOpenShopModal()" class="header_btn shop_btn"><img width="20px" src="./Photo/Icon/shopIcon.png" alt="" class="header_icon"></button>
+                <button class="header_btn sidebar_btn"><img width="25px" src="./Photo/Icon/sidebarIcon.svg" alt="" class="header_icon"></button>
+            </div>
+        </div>
+    </header>
+    <aside class="site__sidebar hidden">
+        <div class="sidebar__bg"></div>
+        <div class="sidebar__wraper">
+            <div class="sidebar__inner">
+                <button class="sidebar_delete">&times;</button>
+                <a href="#hero" class="sidebar__logo">
+                    <img width="50px" src="./Photo/Icon/siteLogo.png" alt="" class="sidenar_logo">
+                    <h3 class="sidebar_title">Planto.</h3>
+                </a>
+            </div>
+            <ul class="sidebar__list">
+                <li class="sidebar_item"><a href="./index.html" class="sidebar_link">Home</a></li>
+                <li class="sidebar_item"><select class="sidebar_select"> <option selected disabled>Plants Type</option> </select></li>
+                <li class="sidebar_item"><a href="#selling__content" class="sidebar_link">More</a></li>
+                <li class="sidebar_item"><a href="#selling__list" class="sidebar_link">Contact</a></li>
+            </ul>
+        </div>
+    </aside>
+    <main class="site__main">
+        <section class="search hidden">
+            <form class="search__form">
+                <h2 class="search_title">Search our planto</h2>
+                <div class="search__change">
+                    <input placeholder=" Search..." type="text" class="change_input">
+                    <button class="change_btn"><img width="20px" src="./Photo/Icon/searchIcon.png" alt=""></button>
+                </div>
+                <button class="search_delete">&times;</button>
+            </form>
+        </section>
+        <section class="shop hidden">
+            <form class="shop__form">
+                <h2 class="shop_title">Change would like to buy something</h2>
+                <div class="shop__change">
+                    <input placeholder="Change something" type="text" class="change_input">
+                    <input placeholder="Change how many" type="number" class="change_input">
+                    <input placeholder="Change size" type="number" class="change_input">
+                    <select class="change_select">
+                        <option disabled selected class="change_option">Chaange matirial</option>
+                        <option value="" class="change_option">Metal</option>
+                        <option value="" class="change_option">Plastik</option>
+                        <option value="" class="change_option">Karton</option>
+                    </select>
+                    <input type="color" class="change_input">
+                </div>
+                <button class="shop_form-btn">Add information</button>
+                <button class="shop_delete">&times</button>
+            </form>
+        </section>
+        <section class="registor hidden">
+            <form class="registor__form">
+                <h2 class="registor_title">Registratsiya</h2>
+                <input type="email" class="registor_input">
+                <input type="number" class="registor_input">
+                <button class="registor_delete">&times;</button>
+                <button class="registor_submit">add information</button>
+            </form>
+        </section>
+        <section class="selling">
+            <div class="conteyner selling__wraper">
+                <h2 class="selling_title">Our Top Selling Information</h2>
+                <div id="selling__content" class="selling__content"></div>
+                <ul id="selling__list" class="selling__list"></ul>
+            </div>
+        </section>
+    </main>
+    <footer class="site__footer">
+        <div class="conteyner">
+            <div class="footer__top">
+                <div class="footer__left">
+                    <a href="#hero" class="footer__logo">
+                        <img width="80px" src="./Photo/Icon/siteLogo.png" alt="" class="footer_logo">
+                        <h2 class="footer_title">Planto.</h2>
+                    </a>
+                    <p class="footer_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="footer__center">
+                    <h3 class="footer_subtitle">Quick Link’s</h3>
+                    <ul class="footer__list">
+                        <li class="footer_item">Home</li>
+                        <li class="footer_item">Type’s Of plant’s</li>
+                        <li class="footer_item">Contact</li>
+                        <li class="footer_item">Privacy</li>
+                    </ul>
+                </div>
+                <div class="footer__right">
+                    <h3 class="footer_subtitle">For Every Update.</h3>
+                    <div class="footer__change">
+                        <input type="text" placeholder=" Enter email" class="footer_input">
+                        <button class="footer_btn">SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <ul class="bottom__list">
+                    <li class="bottom_item">FB</li>
+                    <li class="bottom_item">TW</li>
+                    <li class="bottom_item">LI</li>
+                </ul>
+                <small class="bottom_small">planto © all right reserve</small>
+            </div>
+        </div>
+    </footer>   
+
+    <script src="./information.js"></script>
+    <script src="./selling.js"></script>
+</body>
+</html>
