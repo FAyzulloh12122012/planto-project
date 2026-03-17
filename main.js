@@ -29,7 +29,7 @@ const elFooter = document.querySelector(".site__footer")
 
 const elSearchWebkit = new webkitSpeechRecognition()
 elSearchWebkit.lang = "en-EN"
-let elTrandyImgArray = ["./Photo/Img/img1.png","./Photo/Img/img2.png","./Photo/Img/img3.png","./Photo/Img/img6.pnga"]
+let elTrandyImgArray = ["./Photo/Img/img1.png","./Photo/Img/img2.png","./Photo/Img/img3.png","./Photo/Img/img6.png"]
 let elBestObject = {}
 let elTrandyImgIndex = 0
 
